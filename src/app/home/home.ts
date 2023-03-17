@@ -1,9 +1,9 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { Router } from '@vaadin/router';
-import { defineComponents, IgcIconButtonComponent, IgcIconComponent, IgcListComponent, IgcListItemComponent, IgcRippleComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcButtonComponent, IgcCardComponent, IgcIconButtonComponent, IgcIconComponent, IgcListComponent, IgcListItemComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcIconComponent, IgcListComponent, IgcListItemComponent, IgcIconButtonComponent, IgcRippleComponent);
+defineComponents(IgcIconComponent, IgcListComponent, IgcListItemComponent, IgcIconButtonComponent, IgcRippleComponent, IgcCardComponent, IgcButtonComponent);
 
 @customElement('app-home')
 export default class Home extends LitElement {
@@ -191,6 +191,11 @@ export default class Home extends LitElement {
       min-width: 50px;
       min-height: 50px;
     }
+    .card {
+      width: 320px;
+      height: max-content;
+      min-width: 320px;
+    }
     .image {
       object-fit: cover;
       width: 28px;
@@ -264,8 +269,38 @@ export default class Home extends LitElement {
     .icon-button::part(base) {
       color: hsla(var(--ig-primary-800));
     }
+    .body-content {
+      min-width: 50px;
+      min-height: 50px;
+    }
+    .actions-content {
+      min-width: 50px;
+      min-height: 40px;
+    }
+    .icon-button_1::part(base) {
+      color: hsla(var(--ig-primary-800));
+    }
+    .icon-button_2::part(base) {
+      color: hsla(var(--ig-primary-800));
+    }
+    .icon-button_3::part(base) {
+      color: hsla(var(--ig-primary-800));
+    }
+    .icon-button_4::part(base) {
+      color: hsla(var(--ig-primary-800));
+    }
+    .icon-button_5::part(base) {
+      color: hsla(var(--ig-primary-800));
+    }
+    .icon-button_6::part(base) {
+      color: hsla(var(--ig-primary-800));
+    }
     .list {
       height: max-content;
+    }
+    .button {
+      height: max-content;
+      min-width: min-content;
     }
   `;
 
@@ -411,7 +446,7 @@ export default class Home extends LitElement {
                         </p>
                       </div>
                     </div>
-                    <igc-icon-button variant="flat" @click="${() => Router.go('/medications')}" class="icon-button">
+                    <igc-icon-button variant="flat" @click="${() => Router.go('/medications')}" class="icon-button_1">
                       <span class="material-icons">
                         keyboard_arrow_right
                       </span>
@@ -434,7 +469,7 @@ export default class Home extends LitElement {
                         </p>
                       </div>
                     </div>
-                    <igc-icon-button variant="flat" @click="${() => Router.go('/medications')}" class="icon-button">
+                    <igc-icon-button variant="flat" @click="${() => Router.go('/medications')}" class="icon-button_2">
                       <span class="material-icons">
                         keyboard_arrow_right
                       </span>
@@ -457,7 +492,7 @@ export default class Home extends LitElement {
                         </p>
                       </div>
                     </div>
-                    <igc-icon-button variant="flat" @click="${() => Router.go('/medications')}" class="icon-button">
+                    <igc-icon-button variant="flat" @click="${() => Router.go('/medications')}" class="icon-button_3">
                       <span class="material-icons">
                         keyboard_arrow_right
                       </span>
@@ -499,7 +534,7 @@ export default class Home extends LitElement {
                         </p>
                       </div>
                     </div>
-                    <igc-icon-button variant="flat" @click="${() => Router.go('/appointments')}" class="icon-button">
+                    <igc-icon-button variant="flat" @click="${() => Router.go('/appointments')}" class="icon-button_4">
                       <span class="material-icons">
                         keyboard_arrow_right
                       </span>
@@ -522,7 +557,7 @@ export default class Home extends LitElement {
                         </p>
                       </div>
                     </div>
-                    <igc-icon-button variant="flat" @click="${() => Router.go('/appointments')}" class="icon-button">
+                    <igc-icon-button variant="flat" @click="${() => Router.go('/appointments')}" class="icon-button_5">
                       <span class="material-icons">
                         keyboard_arrow_right
                       </span>
@@ -545,7 +580,7 @@ export default class Home extends LitElement {
                         </p>
                       </div>
                     </div>
-                    <igc-icon-button variant="flat" @click="${() => Router.go('/appointments')}" class="icon-button">
+                    <igc-icon-button variant="flat" @click="${() => Router.go('/appointments')}" class="icon-button_6">
                       <span class="material-icons">
                         keyboard_arrow_right
                       </span>
@@ -560,6 +595,41 @@ export default class Home extends LitElement {
         <a class="typography__body-1 hyperlink_1">
           This is a link
         </a>
+        <igc-card class="card">
+          <igc-card-header>
+            <h3 slot="title">
+              Title goes here...
+            </h3>
+            <h5 slot="subtitle">
+              Subtitle goes here...
+            </h5>
+          </igc-card-header>
+          <igc-card-content class="body-content"></igc-card-content>
+          <igc-card-actions class="actions-content">
+            <igc-button variant="flat" class="button">
+              Button
+              <igc-ripple></igc-ripple>
+            </igc-button>
+            <igc-icon-button variant="flat">
+              <span class="material-icons">
+                favorite
+              </span>
+              <igc-ripple></igc-ripple>
+            </igc-icon-button>
+            <igc-icon-button variant="flat">
+              <span class="material-icons">
+                bookmark
+              </span>
+              <igc-ripple></igc-ripple>
+            </igc-icon-button>
+            <igc-icon-button variant="flat">
+              <span class="material-icons">
+                share
+              </span>
+              <igc-ripple></igc-ripple>
+            </igc-icon-button>
+          </igc-card-actions>
+        </igc-card>
       </div>
     `;
   }
