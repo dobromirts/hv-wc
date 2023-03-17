@@ -575,9 +575,6 @@ export default class Home extends LitElement {
                         <p class="typography__subtitle-2 text_1">
                           Gynaecology
                         </p>
-                        <p class="typography__caption text_1">
-                          Monday, March 6, 2023 - 6:30pm - Dr. J. Dean
-                        </p>
                       </div>
                     </div>
                     <igc-icon-button variant="flat" @click="${() => Router.go('/appointments')}" class="icon-button_6">
